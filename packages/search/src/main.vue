@@ -1,11 +1,12 @@
 
 <template>
   <el-form :model="params" :inline="inline" ref="form" @submit.native.prevent="searchHandler()"
-    :label-width="labelWidth ? (labelWidth + 'px') : ''">
+    :label-width="labelWidth ? (labelWidth + 'px') : ''" style="margin-left: 13px;">
     <el-form-item v-for="(form, index) in forms" :key="index"
       :prop="form.itemType != 'daterange' ? form.prop : (datePrefix + index)"
       :label="form.label" :rules="form.rules || []"
-      :label-width="form.labelWidth ? (form.labelWidth + 'px') : ''">
+      :label-width="form.labelWidth ? (form.labelWidth + 'px') : ''"
+      style="margin-bottom: 0;">
       <el-input v-if="form.itemType === 'input' || form.itemType === undefined"
         v-model="params[form.modelValue]"
         :size="form.size ? form.size : size"
@@ -46,7 +47,7 @@
         :style="itemStyle + (form.itemWidth ? `width: ${form.itemWidth}px;` : '')"
         :picker-options="form.pickerOptions || {}" />
     </el-form-item>
-    <el-form-item label="">
+    <el-form-item label="" style="margin-bottom: 0;">
       <el-button
         type="primary"
         :size="size"

@@ -5,7 +5,10 @@ let props = {
   // Element UI Table attributes
   height: [String, Number],
   maxHeight: [String, Number],
-  stripe: Boolean,
+  stripe: {
+    type: Boolean,
+      default: true
+  },
   border: Boolean,
   fit: {
     type: Boolean,
@@ -15,7 +18,10 @@ let props = {
     type: Boolean,
     default: true
   },
-  highlightCurrentRow: Boolean,
+  highlightCurrentRow: {
+    type: Boolean,
+      default: true
+  },
   currentRowKey: [String, Number],
   rowClassName: [String, Function],
   rowStyle: [String, Function],
@@ -51,7 +57,7 @@ let props = {
   },
   listField: {
     type: String,
-    default: 'data.list'
+    default: 'data.records'
   },
   totalField: {
     type: String,
@@ -154,7 +160,7 @@ let props = {
   pageSizes: {
     type: Array,
     default: () => {
-      return [20, 50, 100]
+      return [10, 20]
     }
   },
   paginationLayout: {
